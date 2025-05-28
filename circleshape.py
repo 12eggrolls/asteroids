@@ -2,7 +2,7 @@ import pygame
 
 class CircleShape(pygame.sprite.Sprite):
     def __init__(self, x, y, radius):
-        if hasattr(self, "containers"):  # check Sprite for member
+        if hasattr(self, "containers"):  # check Sprite/instance for containers member
             super().__init__(self.containers)
         else:
             super().__init__()
