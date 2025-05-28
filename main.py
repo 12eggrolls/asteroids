@@ -1,12 +1,18 @@
 import pygame
 from constants import *
 from player import Player
+from asteroid import Asteroid
+from asteroidfield import AsteroidField
 def main():
     # create groups for organization
     # should assign groups before creating object
     updatable = pygame.sprite.Group()
     drawable = pygame.sprite.Group()
+    asteroids = pygame.sprite.Group()
+    AsteroidField.containers = (updatable)
+    Asteroid.containers = (asteroids, updatable, drawable)
     Player.containers = (updatable, drawable)
+    
     print("Starting Asteroids!")
     print('Screen width:', SCREEN_WIDTH)
     print('Screen height:', SCREEN_HEIGHT)
@@ -14,7 +20,7 @@ def main():
     dt = 0
     clock = pygame.time.Clock()
     player = Player(SCREEN_WIDTH/2, SCREEN_HEIGHT/2)
-
+    asteroidfield = AsteroidField()
 
 
     while 1:
