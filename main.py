@@ -34,10 +34,18 @@ def main():
         screen.fill("black")
         for asset in drawable:
             asset.draw(screen)
+        
         for asteroid in asteroids:
             if player.is_collided(asteroid):
                 print("Game over!")
                 sys.exit(0)
+        
+        for asteroid in asteroids:
+            for bullet in shots:
+                if bullet.is_collided(asteroid):
+                    asteroid.kill()
+                    bullet.kill()
+
         pygame.display.flip()
         dt = clock.tick(60)/1000  # dt based on refresh rate or fps i guess
 
