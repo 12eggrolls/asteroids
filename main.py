@@ -3,6 +3,7 @@ from constants import *
 from player import Player
 from asteroid import Asteroid
 from asteroidfield import AsteroidField
+import sys
 def main():
     # create groups for organization
     # should assign groups before creating object
@@ -31,7 +32,10 @@ def main():
         screen.fill("black")
         for asset in drawable:
             asset.draw(screen)
-
+        for asteroid in asteroids:
+            if player.is_collided(asteroid):
+                print("Game over!")
+                sys.exit(0)
         pygame.display.flip()
         dt = clock.tick(60)/1000  # dt based on refresh rate or fps i guess
 

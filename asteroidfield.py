@@ -3,7 +3,7 @@ import random
 from asteroid import Asteroid
 from constants import *
 
-
+# spawns random asteroids, with randomly set straight movement.
 class AsteroidField(pygame.sprite.Sprite):
     edges = [
         [
